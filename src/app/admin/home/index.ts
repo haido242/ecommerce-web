@@ -12,6 +12,10 @@ export class HomeAdmin extends BaseComponent{
     constructor() {
         super();
     }
-    
+    ngOnInit(): void {
+        super.ngOnInit();
+        console.log("testttttttttttttttttt")
+
+    }
 
 }

@@ -12,6 +12,8 @@ export class HomeClient extends BaseComponent {
     constructor() {
         super();
     }
-    
+    ngOnInit(): void {
+        console.log("HomeClient");
+    }
 
 }

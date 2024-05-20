@@ -13,6 +13,11 @@ const clientRoutes: Routes = [
             path: 'home',
             component: HomeClient
         },
+        {
+            path: '**',
+            redirectTo: 'home',
+            pathMatch: 'full'
+        }
         // {
         //     path: 'profile',
         //     component: ProfileComponent
@@ -26,7 +31,7 @@ const clientRoutes: Routes = [
     ];
 
 @NgModule({
-    imports: [RouterModule.forChild(clientRoutes)],
+    imports: [RouterModule.forRoot(clientRoutes)],
     exports: [RouterModule]
 })
 export class ClientRoutingModule { }
