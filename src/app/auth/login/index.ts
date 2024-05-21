@@ -1,3 +1,4 @@
+import { AuthService } from '@services/auth.service';
 import { Component } from "@angular/core";
 
 
@@ -7,9 +8,9 @@ import { Component } from "@angular/core";
     styleUrls: ["./style.scss"]
 })
 export class Login {
-    constructor() { }
+    constructor(private authService : AuthService) { }
     ngOnInit(): void {
-        console.log("Login");
+        this.authService.login("admin@gmail.com", "Admin123");
     }
 }
 

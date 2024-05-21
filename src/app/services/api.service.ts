@@ -6,7 +6,9 @@ import { Const } from "@app/const/Const";
 
 const backendUrl = Const.backendUrl;
 
-@Injectable()
+@Injectable({
+    providedIn : "root"
+})
 export class ApiService extends HttpService {
     constructor(
         protected client : HttpClient,
@@ -14,7 +16,14 @@ export class ApiService extends HttpService {
     ) {
         super(client);
     }
-    public static buildUrl(path: string): string {
-        return `${backendUrl}/api/${path}`;
+    public static buildUrl(path: string, params? : object) {
+        let url = `${backendUrl}/${path}`;
+        if (params) {
+            url += "?" + Object.keys(params).map(key => `${key}=${params[key]}`).join("&");
+        }
+        return url;
     }
+
+    
+
 }

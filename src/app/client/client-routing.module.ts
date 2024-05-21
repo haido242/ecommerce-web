@@ -6,7 +6,7 @@ import { HomeClient } from "./home";
 
 const clientRoutes: Routes = [
     {
-        path: '',
+        path: 'shop',
         component: ClientComponent,
         children: [
         {
@@ -15,8 +15,7 @@ const clientRoutes: Routes = [
         },
         {
             path: '**',
-            redirectTo: 'home',
-            pathMatch: 'full'
+            redirectTo: 'home'
         }
         // {
         //     path: 'profile',
@@ -31,7 +30,7 @@ const clientRoutes: Routes = [
     ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(clientRoutes)],
+    imports: [RouterModule.forChild(clientRoutes)],
     exports: [RouterModule]
 })
 export class ClientRoutingModule { }

@@ -4,9 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
 import { ClientModule } from './client/client.module';
 import { Login } from './auth/login';
+import { AuthModule } from './auth/module';
 
 const routes: Routes = [
   { path: 'login', component: Login},
+  // { path: '**', redirectTo: 'shop/home'}
 ];
 
 @NgModule({

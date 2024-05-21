@@ -3,14 +3,14 @@ import { NgModule } from "@angular/core";
 import { Router, RouterModule } from "@angular/router";
 import { Login } from "./login";
 
-
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
     ],
     declarations: [
-        Login
+        
+        Login,
     ],
     providers: [],
 })
