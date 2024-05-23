@@ -1,0 +1,13 @@
+:host{
+    display: flex;
+    justify-content: center;
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background-color: #f5f5f5;
+        width: 500px;
+    }
+}

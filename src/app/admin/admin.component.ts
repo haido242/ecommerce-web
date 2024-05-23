@@ -15,4 +15,13 @@ export class AdminComponent extends BaseComponent{
     constructor(){
         super();
     }
+    ngOnInit(): void {
+        super.ngOnInit();
+        if(!this.auth.isLoggedIn()){
+            this.router.navigate(["/login"]);
+        }
+        else if(this.auth.getCurrentUser()['role'] !== "admin"){
+            this.router.navigate(["/shop"]);
+        }
+    }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Router } from "@angular/router";
 import { HttpClient } from '@angular/common/http';
+import {jwtDecode} from "jwt-decode";
 
 @Injectable(
     {
@@ -10,28 +11,33 @@ import { HttpClient } from '@angular/common/http';
 
 )
 export class AuthService {
-    constructor(private router: Router, private http : HttpClient, ) {
+    constructor(private router: Router, private http : HttpClient) {
         
      }
     login(email: string, password: string) {
-        return this.http.post("http://localhost:3000/api/login", { email, password }, { observe: 'response' }).subscribe(
-            (response: any) => {
-                // handle success
-                const token = response.token;
-                localStorage.setItem("token", token);
-                
-            },
-            (error: any) => {
-                // handle error
-                console.error(error);
-                // handle error message and display to user
-            }
-        );
+        return this.http.post("http://localhost:3000/api/login", { email, password })
+
     }
+    loginSuccess(data) {
+        localStorage.setItem("token", data.data.token);
+        data.data.role === "admin" ? this.router.navigate(["/admin"]) : this.router.navigate(["/client"]);
+    }
+
     isLoggedIn() {
         return !!localStorage.getItem("token");
     }
-
+    getCurrentUser() {
+        const token = localStorage.getItem("token");
+        if (!token) return null;
+        const decodedToken = jwtDecode(token);
+        console.log(decodedToken);
+        return decodedToken;
+    }
+    getHeaders() {
+        return {
+            'Authorization': + localStorage.getItem("token")
+        }
+    }
     ngOnInit(): void {
     }
     logout() {

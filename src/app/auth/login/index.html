@@ -1,1 +1,25 @@
-<p>login</p>
+<div class="container">
+    <form nz-form [formGroup]="loginForm">
+        <h1>Login to WARP</h1>
+        <b>Enter your detail below</b>
+        <nz-form-item>
+            <nz-form-control>
+                <input nz-input placeholder="Email" formControlName="email" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <input nz-input placeholder="Password" type="password" formControlName="password"/>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <button nz-button nzType="primary" (click)="onLogin()">Login</button>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+    <div>
+        <a routerLink="/auth/forgot-password">Forget Password</a>
+        <a routerLink="/auth/register">Register</a>
+    </div>
+</div>
