@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 registerLocaleData(en);
 
@@ -26,7 +27,8 @@ registerLocaleData(en);
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NzIconModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

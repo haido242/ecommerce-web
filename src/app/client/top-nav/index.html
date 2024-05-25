@@ -1,0 +1,37 @@
+<div class="top-nav">
+
+    <div class="logo">
+        <span>WARP</span>
+    </div>
+    <div class="nav">
+        <ul>
+            <li><a [routerLink]="'shop/home'">Home</a></li>
+            <li><a [routerLink]="'shop/category'">Category</a></li>
+            <li><a [routerLink]="'shop/cart'">Brand</a></li>
+        </ul>
+    </div>
+    <div class="actions">
+
+        <ng-container *ngIf="!isLoggedIn()">
+            <a class="login" [routerLink]="'/login'"><span nz-icon nzType="user" nzTheme="outline"></span> Login</a>
+
+        </ng-container>
+        <ng-container *ngIf="isLoggedIn()">
+            <!-- cart -->
+            <a [routerLink]="'shop/cart'">
+                <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+            </a>
+            <!-- dropdown -->
+            <a nz-dropdown [nzDropdownMenu]="menu">
+                <span nz-icon nzType="user" nzTheme="outline"></span> <span>  User</span>
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+                <ul nz-menu>
+                    <li nz-menu-item (click)="auth.logout()">Manager my Account</li>
+                    <li nz-menu-item (click)="auth.logout()">My Orders</li>
+                    <li nz-menu-item (click)="auth.logout()">Logout</li>
+                </ul>
+            </nz-dropdown-menu>
+        </ng-container>
+    </div>
+</div>

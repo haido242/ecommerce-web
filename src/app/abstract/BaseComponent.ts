@@ -15,7 +15,19 @@ export class BaseComponent implements OnInit, OnChanges, OnDestroy, DoCheck, Aft
         this.router = this.injector.get(Router);
         this.auth = this.injector.get(AuthService);
      }
+    
+     isLoggedIn() {
+        return this.auth.isLoggedIn();
+    }
 
+    getCurrentUser() {
+        return this.auth.getCurrentUser();
+    }
+
+    getCurrentPage() {
+        return this.router.url;
+    }
+    
     ngOnInit(): void {
         
     }

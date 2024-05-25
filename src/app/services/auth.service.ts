@@ -41,6 +41,7 @@ export class AuthService {
     ngOnInit(): void {
     }
     logout() {
-        this.router.navigate(["/"]);
+        localStorage.removeItem("token");
+        this.router.navigate(["/login"]);
     }
 }
