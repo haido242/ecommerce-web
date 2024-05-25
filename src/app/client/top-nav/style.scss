@@ -44,6 +44,15 @@
             }
             .search{
                 margin-right: 10px;
+                display: flex;
+                align-items: center;
+                background-color: #fff;
+                border-radius: 5px;
+                width: 240px;
+                span{
+                    margin-right: 10px;
+                    color: #000;
+                }
                 input{
                     padding: 5px;
                     border-radius: 5px;

@@ -17,6 +17,11 @@
 
         </ng-container>
         <ng-container *ngIf="isLoggedIn()">
+            <!-- search -->
+                <div class="search">
+                    <input nz-input placeholder="What are you looking for?" [(ngModel)]="search" (keyup.enter)="searchProduct()"/>
+                    <span nz-icon nzType="search" nzTheme="outline" (click)="searchProduct()"></span>
+                </div>
             <!-- cart -->
             <a [routerLink]="'shop/cart'">
                 <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>

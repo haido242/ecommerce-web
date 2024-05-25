@@ -12,4 +12,11 @@ export class TopnavComponent extends BaseComponent{
     constructor() {
         super();
     }
+    ngOnInit(): void {
+        super.ngOnInit();
+    }
+    search = "";
+    searchProduct(){
+        console.log(this.search);
+    }
 }

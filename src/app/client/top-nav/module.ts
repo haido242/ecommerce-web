@@ -8,6 +8,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { TopnavComponent } from '.';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 @NgModule({
   imports: [
@@ -19,6 +21,9 @@ import { TopnavComponent } from '.';
     NzIconModule,
     NzGridModule,
     NzDrawerModule,
+    NzInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
     declarations: [
         TopnavComponent
