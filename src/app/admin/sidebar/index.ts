@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { BaseComponent } from "@app/abstract/BaseComponent";
+import { sidebarMenu } from "./sidebar-menu";
 
 @Component({
   selector: "sidebar",
@@ -12,5 +13,6 @@ export class Sidebar extends BaseComponent{
     super();
   }
 
+  sidebarMenu = sidebarMenu;
 
 }

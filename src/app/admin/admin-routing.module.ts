@@ -2,7 +2,9 @@ import { RouterModule, Routes } from "@angular/router";
 import { AdminComponent } from "./admin.component";
 import { NgModule } from "@angular/core";
 import { HomeAdmin } from "./home";
-
+import { ProductManagement } from "./product";
+import { OrderManagement } from "./order";
+import { UserManagement } from "./user";
 
 const adminRoutes: Routes = [
     {
@@ -14,18 +16,22 @@ const adminRoutes: Routes = [
             component: HomeAdmin
         },
         {
+            path: 'product',
+            component: ProductManagement
+        },
+        {
+            path: 'order',
+            component: OrderManagement
+        },
+        {
+            path: 'user',
+            component: UserManagement
+        },
+        {
             path: '**',
             redirectTo: 'home',
             pathMatch: 'full'
         }
-        // {
-        //     path: 'profile',
-        //     component: ProfileComponent
-        // },
-        // {
-        //     path: 'settings',
-        //     component: SettingsComponent
-        // }
         ]
     }
     ];

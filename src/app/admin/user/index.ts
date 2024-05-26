@@ -1,19 +1,15 @@
 import { Component } from "@angular/core";
 import { BaseComponent } from "@app/abstract/BaseComponent";
 
-
 @Component({
-    selector: 'home-admin',
+    selector: 'user-management',
     templateUrl: './index.html',
-    styleUrls: ['./style.scss']
+    styleUrls: ['./index.scss']
 })
 
-export class HomeAdmin extends BaseComponent{
+export class UserManagement extends BaseComponent{
     constructor() {
         super();
+        console.log('User Management Component');
     }
-    ngOnInit(): void {
-        super.ngOnInit();
-    }
-
 }

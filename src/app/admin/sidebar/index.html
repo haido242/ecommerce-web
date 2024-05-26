@@ -1,0 +1,18 @@
+<div class="sidebar">
+  <div class="logo" style="display: flex; justify-content: center;"> <img
+    nz-image
+    nzSrc="./assets/img/logo.png"
+    alt=""
+    width="80px"
+    height="80px"
+    nzDisablePreview="true"
+  /></div>
+  <ul nz-menu nzTheme="dark" nzMode="inline">
+    <li *ngFor="let item of sidebarMenu" nz-menu-item >
+      <a [routerLink]="[item.routerLink]">
+        <span nz-icon nzType="{{item.icon}}"></span>
+        <span>{{item.title}}</span>
+      </a>
+    </li>
+  </ul>
+</div>
