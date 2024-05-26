@@ -14,7 +14,6 @@ export class Sidebar extends BaseComponent{
   }
   ngOnInit(): void {
     super.ngOnInit();
-    console.log('Sidebar Component', this.sidebarMenu);
   }
 
   sidebarMenu = Const.sidebarMenu;

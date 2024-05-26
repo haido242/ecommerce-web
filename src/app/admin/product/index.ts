@@ -9,15 +9,17 @@ import { BaseComponent } from "@app/abstract/BaseComponent";
 })
 
 export class ProductManagement extends BaseComponent{
+    listProducts: any[] = [];
+
     constructor(private productService: ProductService) {
         super();
-        console.log('Product Management Component');
     }
 
     ngOnInit(): void {
         super.ngOnInit();
-        this.productService.getProducts().subscribe((res) => {
-            console.log('Products', res);
+        this.productService.getProducts().subscribe((res: any) => {
+            this.listProducts = res.data as any;
+            console.log(this.listProducts);
         });
 
     }

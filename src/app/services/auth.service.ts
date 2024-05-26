@@ -30,7 +30,6 @@ export class AuthService {
         const token = localStorage.getItem("token");
         if (!token) return null;
         const decodedToken = jwtDecode(token);
-        console.log(decodedToken);
         return decodedToken;
     }
     getHeaders() {

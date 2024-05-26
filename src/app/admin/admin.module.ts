@@ -16,6 +16,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzImageModule } from 'ng-zorro-antd/image';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzTableModule } from 'ng-zorro-antd/table';
 @NgModule({
     imports: [
         CommonModule,
@@ -27,7 +28,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
         NzIconModule,
         NzImageModule,
         NzDividerModule,
-        NzInputModule
+        NzInputModule,
+        NzTableModule
     ],
     declarations: [
         AdminComponent,
