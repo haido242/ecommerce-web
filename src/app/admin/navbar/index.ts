@@ -11,4 +11,22 @@ export class Navbar extends BaseComponent{
     constructor() {
         super();
     }
+
+    getCurrentPageTitle(): string {
+        switch (this.getCurrentPage()) 
+        {
+            case "/admin/home":
+                return "Admin Home";
+            case "/admin/product":
+                return "Products";
+            case "/admin/categories":
+                return "Categories";
+            case "/admin/order":
+                return "Orders";
+            case "/admin/user":
+                return "Users";
+            default:
+                return "Admin";
+        }
+    }
 }

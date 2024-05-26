@@ -2,6 +2,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 import { getInjector } from "../services/injector";
 import { Router } from "@angular/router";
 import { AuthService } from "@app/services/auth.service";
+import { Const } from "@app/const/Const";
 
 
 
@@ -24,12 +25,25 @@ export class BaseComponent implements OnInit, OnChanges, OnDestroy, DoCheck, Aft
         return this.auth.getCurrentUser();
     }
 
+    hilightsidebarMenu() {
+        const currentPage = this.getCurrentPage();
+        const sidebarMenu = Const.sidebarMenu;
+        sidebarMenu.forEach((menu) => {
+            if (menu.routerLink === currentPage) {
+                menu.hilight = true;
+            } else {
+                menu.hilight = false;
+            }
+        });
+        return sidebarMenu;
+    }
+    
     getCurrentPage() {
         return this.router.url;
     }
     
     ngOnInit(): void {
-        
+        this.hilightsidebarMenu();
     }
 
     ngOnChanges(): void {

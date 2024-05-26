@@ -12,4 +12,8 @@ export class UserManagement extends BaseComponent{
         super();
         console.log('User Management Component');
     }
+
+    ngOnInit(): void {
+        super.ngOnInit();
+    }
 }

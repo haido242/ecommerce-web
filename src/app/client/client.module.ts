@@ -5,6 +5,7 @@ import { ClientComponent } from "./client.component";
 import { ClientRoutingModule } from "./client-routing.module";
 import { HomeClient } from "./home";
 import { TopnavModule } from "./top-nav/module";
+import { ProductCard } from "./components/card";
 
 
 @NgModule({
@@ -12,11 +13,13 @@ import { TopnavModule } from "./top-nav/module";
         CommonModule,
         RouterModule,
         ClientRoutingModule,
-        TopnavModule
+        TopnavModule,
+        
     ],
     declarations: [
         ClientComponent,
-        HomeClient
+        HomeClient,
+        ProductCard
     ],
     providers: [],
 })

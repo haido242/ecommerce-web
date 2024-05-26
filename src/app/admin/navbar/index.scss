@@ -1,5 +1,9 @@
 .navbar {
   display: flex;
-  color: #fff;
+  color: #000;
   justify-content: space-between;
+  .title-tab{
+    font-size: 20px;
+    font-weight: 500;
+  }
 }

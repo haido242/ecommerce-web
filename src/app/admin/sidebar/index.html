@@ -8,9 +8,9 @@
     nzDisablePreview="true"
   /></div>
   <ul nz-menu nzTheme="dark" nzMode="inline">
-    <li *ngFor="let item of sidebarMenu" nz-menu-item >
+    <li *ngFor="let item of sidebarMenu" nz-menu-item [nzSelected]="item.hilight">
       <a [routerLink]="[item.routerLink]">
-        <span nz-icon nzType="{{item.icon}}"></span>
+        <span nz-icon class="icon" nzType="{{item.icon}}"></span>
         <span>{{item.title}}</span>
       </a>
     </li>

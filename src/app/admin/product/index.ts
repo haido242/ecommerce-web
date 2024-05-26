@@ -12,4 +12,8 @@ export class ProductManagement extends BaseComponent{
         super();
         console.log('Product Management Component');
     }
+
+    ngOnInit(): void {
+        super.ngOnInit();
+    }
 }

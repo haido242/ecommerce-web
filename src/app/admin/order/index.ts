@@ -12,4 +12,8 @@ export class OrderManagement extends BaseComponent{
         super();
         console.log('Order Management Component');
     }
+
+    ngOnInit(): void {
+        super.ngOnInit();
+    }
 }

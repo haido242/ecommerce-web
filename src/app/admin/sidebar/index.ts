@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { BaseComponent } from "@app/abstract/BaseComponent";
-import { sidebarMenu } from "./sidebar-menu";
+import { Const } from "@app/const/Const";
 
 @Component({
   selector: "sidebar",
@@ -12,7 +12,11 @@ export class Sidebar extends BaseComponent{
   constructor() {
     super();
   }
+  ngOnInit(): void {
+    super.ngOnInit();
+    console.log('Sidebar Component', this.sidebarMenu);
+  }
 
-  sidebarMenu = sidebarMenu;
+  sidebarMenu = Const.sidebarMenu;
 
 }

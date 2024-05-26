@@ -2,21 +2,18 @@ import { Component } from "@angular/core";
 import { BaseComponent } from "@app/abstract/BaseComponent";
 
 
+
 @Component({
-    selector: "client-topnav",
+    selector: "client-product-card",
     templateUrl: "./index.html",
     styleUrls: ["./style.scss"]
 })
 
-export class TopnavComponent extends BaseComponent{
+export class ProductCard extends BaseComponent{
     constructor() {
         super();
     }
     ngOnInit(): void {
         super.ngOnInit();
-    }
-    search = "";
-    searchProduct(){
-        
     }
 }
