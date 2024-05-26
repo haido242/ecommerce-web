@@ -1,3 +1,4 @@
+import { ProductService } from './../../services/product.service';
 import { Component } from "@angular/core";
 import { BaseComponent } from "@app/abstract/BaseComponent";
 
@@ -8,12 +9,16 @@ import { BaseComponent } from "@app/abstract/BaseComponent";
 })
 
 export class ProductManagement extends BaseComponent{
-    constructor() {
+    constructor(private productService: ProductService) {
         super();
         console.log('Product Management Component');
     }
 
     ngOnInit(): void {
         super.ngOnInit();
+        this.productService.getProducts().subscribe((res) => {
+            console.log('Products', res);
+        });
+
     }
 }
