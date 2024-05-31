@@ -44,9 +44,9 @@
         <td>{{ product.name }}</td>
         <td></td>
         <td>{{ product.stockQuantity }}</td>
-        <td>{{ product.price }}</td>
+        <td>{{ product.price | formatMoney}}</td>
         <td></td>
-        <td>{{product.creatAt}}</td>
+        <td>{{product.createAt | utcToLocal}}</td>
         <td></td>
       </tr>
     </tbody>
