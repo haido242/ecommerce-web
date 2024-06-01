@@ -19,6 +19,8 @@ import { NzImageModule } from 'ng-zorro-antd/image';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { AddProduct } from "./product/add-product";
 @NgModule({
     imports: [
         CommonModule,
@@ -32,6 +34,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
         NzDividerModule,
         NzInputModule,
         NzTableModule,
+        NzModalModule
     ],
     declarations: [
         FormatMoney,
@@ -42,7 +45,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
         Navbar,
         ProductManagement,
         OrderManagement,
-        UserManagement
+        UserManagement,
+        AddProduct
     ],
     providers: [],
 })

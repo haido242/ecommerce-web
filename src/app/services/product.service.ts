@@ -24,4 +24,7 @@ export class ProductService {
     deleteProduct(id) {
         return this.http.delete("http://localhost:3000/api/products/" + id)
     }
+    getProductsLowStock() {
+        return this.http.get("http://localhost:3000/api/products/low-stock")
+    }
 }
