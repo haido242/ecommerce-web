@@ -1,0 +1,36 @@
+:host {
+
+    .section-1 {
+        padding: 24px 24px 0 24px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap; // Add flex-wrap for better handling of smaller screens
+
+        .filter-status {
+            button {
+                border-radius: 10px;
+            }
+        }
+
+        .search {
+            margin-right: 24px;
+            flex: 2 1 auto; // Allow the search bar to grow and shrink
+        }
+
+        .add {
+            margin-right: 8px;
+
+            button {
+                border-radius: 10px;
+            }
+        }
+
+        .more-filter-modal {
+            margin-right: 8px;
+
+            button {
+                border-radius: 10px;
+            }
+        }
+    }
+}

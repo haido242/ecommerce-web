@@ -5,6 +5,7 @@ import { HomeAdmin } from "./home";
 import { ProductManagement } from "./product";
 import { OrderManagement } from "./order";
 import { UserManagement } from "./user";
+import { UserDetail } from "./user/detail";
 
 const adminRoutes: Routes = [
     {
@@ -25,7 +26,12 @@ const adminRoutes: Routes = [
         },
         {
             path: 'user',
-            component: UserManagement
+            component: UserManagement,
+        },
+        // path user detail
+        {
+            path: 'user/:id',
+            component: UserDetail
         },
         {
             path: '**',

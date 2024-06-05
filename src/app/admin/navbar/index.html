@@ -3,6 +3,23 @@
     <span>{{getCurrentPageTitle()}}</span>
   </div>
   <div class="block-right">
-    block-right
+    <div
+      class="user-info"
+    >
+      <div nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+        <span nz-icon nzType="user" nzTheme="outline"></span>
+        <!-- <span>{{user?.username}}</span> -->
+      </div>
+
+  </div>
   </div>
 </div>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item (click)="onBtnLogout()">
+      <span nz-icon nzType="logout" nzTheme="outline"></span>
+      Logout
+    </li>
+  </ul>
+</nz-dropdown-menu>

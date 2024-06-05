@@ -21,11 +21,20 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { AddProduct } from "./product/add-product";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { UserDetail } from "./user/detail";
+import { NzFormModule } from "ng-zorro-antd/form";
+import { NzSelectModule } from "ng-zorro-antd/select";
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzDropDownModule } from "ng-zorro-antd/dropdown";
+
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
         AdminRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
         NzButtonModule,
         NzLayoutModule,
         NzMenuModule,
@@ -34,7 +43,12 @@ import { AddProduct } from "./product/add-product";
         NzDividerModule,
         NzInputModule,
         NzTableModule,
-        NzModalModule
+        NzModalModule,
+        NzFormModule,
+        NzInputModule,
+        NzSelectModule,
+        NzMessageModule,
+        NzDropDownModule
     ],
     declarations: [
         FormatMoney,
@@ -46,7 +60,8 @@ import { AddProduct } from "./product/add-product";
         ProductManagement,
         OrderManagement,
         UserManagement,
-        AddProduct
+        AddProduct,
+        UserDetail,
     ],
     providers: [],
 })

@@ -1,1 +1,54 @@
-<div>user</div>
+<div class="list-body">
+    <div class="section-1">
+        <div class="filter-status">
+            <button (click)="filterUser()" nz-button nzType="default" style="margin-right: 8px;">All Users</button>  
+            <button (click)="filterUser('active')" nz-button nzType="default">Active</button>
+            <button (click)="filterUser('blocked')" nz-button nzType="default">Blocked</button>
+
+        </div>
+        <div class="search">
+          <nz-input-group [nzPrefix]="prefixTemplateUser" >
+            <input style="width: 100%" type="text" nz-input placeholder="Search product by name" [nzBorderless]="true"/>
+          </nz-input-group>
+          <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
+        </div>
+        <div class="more-filter-modal">
+          <button nz-button nzType="default">
+            <span nz-icon nzType="filter" nzTheme="outline"></span>
+            More Filter
+          </button>
+        </div>
+        <div class="add">
+          <button (click)="onBtnAddUser()" nz-button nzType="primary">
+            <span nz-icon nzType="plus" nzTheme="outline"></span>
+            Add User
+          </button>
+        </div>
+      </div>
+      <nz-divider></nz-divider>
+        <div class="list-user">
+            <nz-table nzShowSizeChanger #rowSelectionTable  [nzData]="userList">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of rowSelectionTable.data">
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role }}</td>
+                <td style="color: green; font-weight: bold;">{{ user.status}}</td>
+                <!-- <td>{{ user.createAt | utcToLocal}}</td> -->
+                <td>
+                    <span (click)="onBtnDeleteUser(user._id ?? user?.id)" style="font-size: 18px; cursor: pointer; margin-right: 12px;" nz-icon nzType="delete" nzTheme="outline"></span>
+                    <span (click)="goDetailUser(user._id)" style="font-size: 18px; cursor: pointer;" nz-icon nzType="eye" nzTheme="outline"></span>
+                </td>
+            </tr>
+            </tbody>
+        </nz-table> 
+</div>

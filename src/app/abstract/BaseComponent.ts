@@ -3,7 +3,7 @@ import { getInjector } from "../services/injector";
 import { Router } from "@angular/router";
 import { AuthService } from "@app/services/auth.service";
 import { Const } from "@app/const/Const";
-
+import { NzMessageService } from "ng-zorro-antd/message";
 
 
 @Directive()
@@ -11,10 +11,12 @@ export class BaseComponent implements OnInit, OnChanges, OnDestroy, DoCheck, Aft
     protected injector : Injector;
     protected router : Router;
     protected auth : AuthService
+    protected message: NzMessageService;
     constructor(protected activatedRoute: Router = null) {
         this.injector = getInjector();
         this.router = this.injector.get(Router);
         this.auth = this.injector.get(AuthService);
+        this.message = this.injector.get(NzMessageService);
      }
     
      isLoggedIn() {

@@ -1,0 +1,145 @@
+<div class="detail-body flex">
+
+    <div class="user-info detail-group">
+        <form nz-form [formGroup]="userForm">
+            <nz-form-item >
+                <nz-form-control >
+                    <div class="flex">
+                        <div class="icon">
+
+                            <span nz-icon nzType="mail" nzTheme="outline"></span>
+                        </div>
+                        <div class="form-item">
+                            
+                            <label>Full Name</label>
+                            <input nz-input placeholder="Username" formControlName="username">
+                        </div>
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item >
+                <nz-form-control >
+                    <div class="flex">
+                        <div class="icon">
+
+                            <span nz-icon nzType="mail" nzTheme="outline"></span>
+                        </div>
+                        <div class="form-item">
+                            
+                            <label>Email</label>
+                            <input nz-input placeholder="Email" formControlName="email">
+                        </div>
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item >
+                <nz-form-control >
+                    <div class="flex">
+                        <div class="icon">
+
+                            <span nz-icon nzType="lock" nzTheme="outline"></span>
+                        </div>
+                        <div class="form-item">
+                            
+                            <label>Phone</label>
+                            <input nz-input placeholder="phone" type="phone" formControlName="phone">
+                        </div>
+                    </div>
+                </nz-form-control>
+
+            </nz-form-item>
+
+            <nz-form-item >
+                <nz-form-control >
+                    <div class="flex">
+                        <div class="icon">
+
+                            <span nz-icon nzType="lock" nzTheme="outline"></span>
+                        </div>
+                        <div class="form-item">
+                            
+                            <label>Role</label>
+                            <nz-select nzBorderless formControlName="role" nzPlaceHolder="role">
+                                <nz-option nzValue="admin" nzLabel="admin"></nz-option>
+                                <nz-option nzValue="user" nzLabel="user"></nz-option>
+                              </nz-select>
+                        </div>
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item >
+                <nz-form-control >
+                    <div class="flex">
+                        <div class="icon">
+
+                            <span nz-icon nzType="phone" nzTheme="outline"></span>
+                        </div>
+                        <div class="form-item">
+                            
+                            <label>Phone</label>
+                            <input nz-input placeholder="Phone" formControlName="phone">
+                        </div>
+                    </div>
+                </nz-form-control>
+
+            </nz-form-item>
+<!-- 
+            <nz-form-item >
+                <nz-form-control >
+                    <div class="flex">
+                        <div class="icon">
+
+                            <span nz-icon nzType="home" nzTheme="outline"></span>
+                        </div>
+                        <div class="form-item">
+                            
+                            <label>Address</label>
+                            <input nz-input placeholder="Address" formControlName="address">
+                        </div>
+                    </div>
+                </nz-form-control>
+            </nz-form-item> -->
+
+            
+
+        </form>
+
+    </div>
+
+    <div class="detail-group user-order">
+        <div class="order-analytic">
+            <div class="order-analytic-item">
+                <div class="title">Total Orders</div>
+                <div class="value">0</div>
+            </div>
+            <div class="order-analytic-item">
+                <div class="title">Total Revenue</div>
+                <div class="value">0</div>
+            </div>
+        </div>
+        <nz-table #orderTable [nzData]="ordersList">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orderTable.data">
+                    <td>{{order._id}}</td>
+                    <td>{{order.status}}</td>
+                    <td>{{order.totalPrice | formatMoney}}</td>
+                </tr>
+            </tbody>
+        </nz-table>
+
+
+
+    </div>
+
+
+</div>

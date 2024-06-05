@@ -12,6 +12,10 @@ export class Navbar extends BaseComponent{
         super();
     }
 
+    onBtnLogout() {
+        this.auth.logout();
+    }
+
     getCurrentPageTitle(): string {
         switch (this.getCurrentPage()) 
         {
