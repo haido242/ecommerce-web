@@ -27,6 +27,8 @@ import { NzFormModule } from "ng-zorro-antd/form";
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzDropDownModule } from "ng-zorro-antd/dropdown";
+import { FormModalProduct } from "./product/form-modal-product";
+import { NzUploadModule } from 'ng-zorro-antd/upload';
 
 @NgModule({
     imports: [
@@ -48,7 +50,8 @@ import { NzDropDownModule } from "ng-zorro-antd/dropdown";
         NzInputModule,
         NzSelectModule,
         NzMessageModule,
-        NzDropDownModule
+        NzDropDownModule,
+        NzUploadModule
     ],
     declarations: [
         FormatMoney,
@@ -62,6 +65,7 @@ import { NzDropDownModule } from "ng-zorro-antd/dropdown";
         UserManagement,
         AddProduct,
         UserDetail,
+        FormModalProduct
     ],
     providers: [],
 })

@@ -1,0 +1,48 @@
+<div style="width: 1200px;">
+  <form nz-form [formGroup]="productForm" *ngIf="productForm">
+    <div class="general-infomation">
+      <div class="title">
+        <h2>General Infomation</h2>
+      </div>
+      <div class="product-name">
+        <nz-form-label nzSpan="6">Product Name</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="name">
+        </nz-form-control>
+      </div>
+      <div class="product-description">
+        <nz-form-label nzSpan="6">Description</nz-form-label>
+        <nz-form-control>
+          <textarea nz-input formControlName="description"></textarea>
+        </nz-form-control>
+      </div>
+    </div>
+    <div class="category">
+      <div class="title">
+        <h2>Category</h2>
+      </div>
+      <div class="category-name">
+        <nz-form-label nzSpan="6">Category Name</nz-form-label>
+        <nz-form-control>
+          <nz-select formControlName="category" nzPlaceHolder="Select a category">
+            <nz-option *ngFor="let category of listCategory" [nzLabel]="category.name" [nzValue]="category._id"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </div>
+    </div>
+    <div class="media">
+      <div class="title">
+        <h2>Media</h2>
+      </div>
+      <div class="upload-photo">
+        <nz-form-label nzSpan="6">Upload Photo</nz-form-label>
+        <nz-form-control>
+          <nz-upload  nzListType="picture-card" [nzFileList]="fileList" (nzChange)="handleChange($event)">
+            <i nz-icon nzType="plus"></i>
+            <div class="ant-upload-text">Upload</div>
+          </nz-upload>
+        </nz-form-control>
+      </div>
+    </div>
+  </form>
+</div>
