@@ -58,14 +58,10 @@
         <td>{{ product.createAt | utcToLocal}}</td>
         <td>
           <span (click)="onBtnDeleteProduct(product._id ?? product?.id)" style="font-size: 18px; cursor: pointer; margin-right: 12px;" nz-icon nzType="delete" nzTheme="outline"></span>
-          <span style="font-size: 18px; cursor: pointer;" nz-icon nzType="eye" nzTheme="outline"></span>
+          <span (click)="onBtnEditProduct(product)" style="font-size: 18px; cursor: pointer;" nz-icon nzType="eye" nzTheme="outline"></span>
         </td>
       </tr>
     </tbody>
   </nz-table>
-  </div>
-  <!-- modal product -->
-  <div style="width: 1200px;">
-    <form-modal-product></form-modal-product>
   </div>
 </div>

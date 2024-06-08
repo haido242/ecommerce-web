@@ -1,47 +1,132 @@
-<div style="width: 1200px;">
+<div class="bg-gray pd-24">
   <form nz-form [formGroup]="productForm" *ngIf="productForm">
-    <div class="general-infomation">
-      <div class="title">
-        <h2>General Infomation</h2>
+    
+    <div class="general-information item bg-white">
+      <div class="title f18 fw-bold">
+        General Information
       </div>
-      <div class="product-name">
-        <nz-form-label nzSpan="6">Product Name</nz-form-label>
-        <nz-form-control>
-          <input nz-input formControlName="name">
-        </nz-form-control>
+      <div nz-row nzGutter="16">
+        <div nz-col [nzSpan]="24">
+          <nz-form-label>Product Name</nz-form-label>
+          <nz-form-control>
+            <input placeholder="Type product name here..." class="border-radius-8" nz-input formControlName="name">
+          </nz-form-control>
+        </div>
       </div>
-      <div class="product-description">
-        <nz-form-label nzSpan="6">Description</nz-form-label>
-        <nz-form-control>
-          <textarea nz-input formControlName="description"></textarea>
-        </nz-form-control>
-      </div>
-    </div>
-    <div class="category">
-      <div class="title">
-        <h2>Category</h2>
-      </div>
-      <div class="category-name">
-        <nz-form-label nzSpan="6">Category Name</nz-form-label>
-        <nz-form-control>
-          <nz-select formControlName="category" nzPlaceHolder="Select a category">
-            <nz-option *ngFor="let category of listCategory" [nzLabel]="category.name" [nzValue]="category._id"></nz-option>
-          </nz-select>
-        </nz-form-control>
+      <div nz-row nzGutter="16" class="mt-3">
+        <div nz-col [nzSpan]="24">
+          <nz-form-label>Description</nz-form-label>
+          <nz-form-control>
+            <textarea  placeholder="Type product description here..."class="border-radius-8" nz-input formControlName="description"></textarea>
+          </nz-form-control>
+        </div>
       </div>
     </div>
-    <div class="media">
-      <div class="title">
-        <h2>Media</h2>
+
+    <div class="category item mt-24 bg-white">
+      <div class="title f18 fw-bold">
+        Category
       </div>
-      <div class="upload-photo">
-        <nz-form-label nzSpan="6">Upload Photo</nz-form-label>
-        <nz-form-control>
-          <nz-upload  nzListType="picture-card" [nzFileList]="fileList" (nzChange)="handleChange($event)">
-            <i nz-icon nzType="plus"></i>
-            <div class="ant-upload-text">Upload</div>
-          </nz-upload>
-        </nz-form-control>
+      <div nz-row nzGutter="16">
+        <div nz-col [nzSpan]="24">
+          <nz-form-label>Category Name</nz-form-label>
+          <nz-form-control>
+            <nz-select class="border-radius-8" formControlName="category" nzPlaceHolder="Select a category">
+              <nz-option class="border-radius-8" *ngFor="let category of listCategory" [nzLabel]="category.name" [nzValue]="category._id"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </div>
+      </div>
+    </div>
+
+    <div class="media item mt-24 bg-white">
+      <div class="title f18 fw-bold">
+        Media
+      </div>
+      <div nz-row nzGutter="16">
+        <div nz-col [nzSpan]="24">
+          <nz-form-label>Upload Photo</nz-form-label>
+          <nz-form-control>
+            <nz-upload
+              class="border-radius-8"
+              nzType="drag"
+              [nzMultiple]="true"
+              nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              (nzChange)="handleChange($event)">
+              <p class="ant-upload-drag-icon">
+                <span nz-icon nzType="file-image" nzTheme="outline"></span>
+              </p>
+              <p class="ant-upload-text">Drag and drop image here, or click add image</p>
+            </nz-upload>
+          </nz-form-control>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing item mt-24 bg-white">
+      <div class="title f18 fw-bold">
+        Pricing
+      </div>
+      <div nz-row nzGutter="16">
+        <div nz-col [nzSpan]="24">
+          <nz-form-label>Base Price</nz-form-label>
+          <nz-form-control>
+            <input placeholder="Type base price here..." class="border-radius-8" nz-input formControlName="price">
+          </nz-form-control>
+        </div>
+      </div>
+    </div>
+
+    <div class="inventory item mt-24 bg-white">
+      <div class="title f18 fw-bold">
+        Inventory
+      </div>
+      <div nz-row nzGutter="16">
+        <div nz-col [nzSpan]="24">
+          <nz-form-label>Quantity</nz-form-label>
+          <nz-form-control>
+            <input placeholder="Type product quantity here..." class="border-radius-8" nz-input formControlName="stockQuantity">
+          </nz-form-control>
+        </div>
+      </div>
+    </div>
+
+    <div class="shipping item mt-24 bg-white">
+      <div class="title f18 fw-bold">
+        Shipping
+      </div>
+      <div nz-row nzGutter="16">
+        <div nz-col [nzSpan]="24" class="mg-top-bottom-10">
+          <nz-form-control>
+            <label class="font-color-blue fw-bold" nz-checkbox formControlName="isPhysicalProduct">This is a physical product</label>
+          </nz-form-control>
+        </div>
+      </div>
+      <div nz-row nzGutter="8" class="mt-3 custom-form-row">
+        <div nz-col [nzSpan]="24" [nzMd]="6">
+          <nz-form-label>Weight</nz-form-label>
+          <nz-form-control>
+            <input placeholder="Product weight..." class="border-radius-8" nz-input formControlName="weight">
+          </nz-form-control>
+        </div>
+        <div nz-col [nzSpan]="24" [nzMd]="6">
+          <nz-form-label>Height</nz-form-label>
+          <nz-form-control>
+            <input  placeholder="Height (cm)..." class="border-radius-8" nz-input formControlName="height">
+          </nz-form-control>
+        </div>
+        <div nz-col [nzSpan]="24" [nzMd]="6">
+          <nz-form-label>Length</nz-form-label>
+          <nz-form-control>
+            <input placeholder="Length (cm)..." class="border-radius-8" nz-input formControlName="length">
+          </nz-form-control>
+        </div>
+        <div nz-col [nzSpan]="24" [nzMd]="6">
+          <nz-form-label>Width</nz-form-label>
+          <nz-form-control>
+            <input placeholder="Width (cm)..." class="border-radius-8" nz-input formControlName="width">
+          </nz-form-control>
+        </div>
       </div>
     </div>
   </form>

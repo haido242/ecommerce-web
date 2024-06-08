@@ -20,7 +20,6 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzModalModule } from 'ng-zorro-antd/modal';
-import { AddProduct } from "./product/add-product";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserDetail } from "./user/detail";
 import { NzFormModule } from "ng-zorro-antd/form";
@@ -29,6 +28,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzDropDownModule } from "ng-zorro-antd/dropdown";
 import { FormModalProduct } from "./product/form-modal-product";
 import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
 @NgModule({
     imports: [
@@ -51,7 +51,8 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
         NzSelectModule,
         NzMessageModule,
         NzDropDownModule,
-        NzUploadModule
+        NzUploadModule,
+        NzCheckboxModule
     ],
     declarations: [
         FormatMoney,
@@ -63,7 +64,6 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
         ProductManagement,
         OrderManagement,
         UserManagement,
-        AddProduct,
         UserDetail,
         FormModalProduct
     ],

@@ -1,10 +1,12 @@
-import { Component } from "@angular/core";
+import { Component, Input, inject } from "@angular/core";
 import { BaseComponent } from "@app/abstract/BaseComponent";
+import { NzModalRef, NZ_MODAL_DATA } from "ng-zorro-antd/modal";
 import {
     AbstractControl,
     FormBuilder,
     FormControl,
     FormGroup,
+    NG_VALUE_ACCESSOR,
     NonNullableFormBuilder,
     ValidatorFn,
     Validators
@@ -13,10 +15,15 @@ import {
 @Component({
     selector: 'form-modal-product',
     templateUrl: './index.html',
-    styleUrls: ['./index.scss']
+    styleUrls: ['./index.scss'],
 })
 
 export class FormModalProduct extends BaseComponent{
+    isEditing: boolean = false;
+    productData: any;
+
+    readonly nzModalData = inject(NZ_MODAL_DATA);
+
     productForm: FormGroup;
     fileList: any[] = [];
     // fake list cvategory
@@ -32,6 +39,13 @@ export class FormModalProduct extends BaseComponent{
 
     ngOnInit(): void {
         this.initForm();
+        this.isEditing = this.nzModalData.isEditing;
+        this.productData = this.nzModalData.productData;
+        console.log("isEditing", this.isEditing);
+        console.log("productData", this.productData);
+        if(this.isEditing && this.productData) {
+            this.productForm.patchValue(this.productData);
+        }
     }
 
     initForm() {
@@ -42,7 +56,12 @@ export class FormModalProduct extends BaseComponent{
             image: [''],
             category: ['', Validators.required],
             status: [''],
-            quantity: ['', Validators.required]
+            stockQuantity: ['', Validators.required],
+            isPhysicalProduct: [false],
+            weight: ['', Validators.required],
+            length: ['', Validators.required],
+            width: ['', Validators.required],
+            height: ['', Validators.required],
         })
     }
 
@@ -53,4 +72,6 @@ export class FormModalProduct extends BaseComponent{
     handleChange($event: any) {
         
     }
+
+    public returnDataForm: (dataFormJson) => void = () => { }
 }

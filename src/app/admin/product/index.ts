@@ -2,7 +2,7 @@ import { ProductService } from './../../services/product.service';
 import { Component } from "@angular/core";
 import { BaseComponent } from "@app/abstract/BaseComponent";
 import { ModalService } from '@app/dialog/antModal';
-import { AddProduct } from './add-product';
+import { FormModalProduct } from './form-modal-product';
 
 @Component({
     selector: 'product-management',
@@ -32,13 +32,16 @@ export class ProductManagement extends BaseComponent{
         });
     }
 
+
+
     onBtnAddProduct(event?: any) {
-        this.modalService.openModalWithSize(
-            AddProduct
+        const modal = this.modalService.openModalWithSize(
+            FormModalProduct,
+            { isEditing: false, productData: {} }
             , 'Add New Product', 
-            1200,
+            800,
             () => {
-                console.log('OK');
+                // lấy dữ liệu từ formodalproduct
             },
             () => {
                 console.log('Cancel');
@@ -69,4 +72,20 @@ export class ProductManagement extends BaseComponent{
                 console.log('Cancel');
             });
     }
+
+    onBtnEditProduct(product: any) {
+        this.modalService.openModalWithSize(
+            FormModalProduct,
+            { isEditing: true, productData: product }
+            , 'Edit Product', 
+            800,
+            () => {
+                console.log('OK');
+            },
+            () => {
+                console.log('Cancel');
+            });
+    }
+
+
 }

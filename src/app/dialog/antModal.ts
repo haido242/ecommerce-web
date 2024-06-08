@@ -8,7 +8,7 @@ import { NzModalService } from "ng-zorro-antd/modal";
 export class ModalService {
   constructor(private modal: NzModalService) {}
 
-  public openModalWithSize(component: any, title: string, width: number, onOk: () => void, onCancel?: () => void): void {
+  public openModalWithSize(component: any, data: object, title: string, width: number, onOk: () => void, onCancel?: () => void): void {
     this.modal.create({
       nzContent: component,
       nzTitle: title,
@@ -16,7 +16,8 @@ export class ModalService {
       nzMaskClosable: false,
       nzWidth: width,
       nzOnOk: onOk,
-      nzOnCancel: onCancel
+      nzOnCancel: onCancel,
+      nzData: data
     });
   }
 
