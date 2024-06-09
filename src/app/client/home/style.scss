@@ -1,0 +1,98 @@
+:host{
+    .group{
+        padding: 20px;
+    }
+    .row-header{
+        height: 40px;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 600;
+        .class-gi-day{
+            width: 20px;
+            height: 100%;
+            background-color: #446DF6;
+            margin-right: 16px;
+            border-radius: 4px;
+        }
+    }
+    .title{
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: 16px;
+        margin-bottom: 20px;
+    }
+    .list-product{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 24px;
+      
+    }
+    .category{
+        background-color: #446DF6;
+        border-radius: 10px;
+        color: #ffffff;
+        .row-header{
+            height: 40px;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 600;
+            .class-gi-day{
+                width: 20px;
+                height: 100%;
+                background-color: #FED9B7;
+                margin-right: 16px;
+                border-radius: 4px;
+            }
+        }
+        .title{
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 16px;
+            margin-bottom: 20px;
+        }
+    }
+    .list-category{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 24px;
+        .category-card{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #e6e6e6;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.5s;
+            &:hover{
+                background-color: #DB4444;
+                .image{
+                    img{
+                        filter: invert(1);
+                    }
+                }
+            }
+            .image{
+                width: 100px;
+                height: 100px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    filter: invert(1)
+                }
+            }
+            .name{
+                font-size: 20px;
+                font-weight: 600;
+                color: #ffffff;
+            }
+        }
+    }
+}

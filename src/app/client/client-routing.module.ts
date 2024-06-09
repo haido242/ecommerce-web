@@ -2,6 +2,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { ClientComponent } from "./client.component";
 import { NgModule } from "@angular/core";
 import { HomeClient } from "./home";
+import { CartClient } from "./cart";
 
 
 const clientRoutes: Routes = [
@@ -12,6 +13,10 @@ const clientRoutes: Routes = [
         {
             path: 'home',
             component: HomeClient
+        },
+        {
+            path: 'cart',
+            component: CartClient
         },
         {
             path: '**',

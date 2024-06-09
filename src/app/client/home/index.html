@@ -1,1 +1,39 @@
-<p>home</p>
+<div class="home-body">
+    <div class="best-seller group">
+        <div class="row-header">
+            <div class="class-gi-day"></div>
+            <span>This Month</span>
+        </div>
+        <div class="title">
+            <span>New Products</span>
+        </div>
+        <div class="list-product">
+            <ng-container *ngFor="let product of list">
+                <client-product-card [product]="product"></client-product-card>
+            </ng-container>
+        </div>
+    </div>
+    <nz-divider></nz-divider>
+    <div class="category group">
+        <div class="row-header">
+            <div class="class-gi-day"></div>
+            <span>Category</span>
+        </div>
+        <div class="title">
+            <span>Browse By Category</span>
+        </div>
+        <div class="list-category">
+            <ng-container *ngFor="let category of listCategory">
+                <div class="category-card">
+                    <div class="image">
+                            <img [src]="getIcon(category.name)">
+                    </div>
+                    <div class="name">
+                        <span>{{ category.name }}</span>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <nz-divider></nz-divider>
+</div>

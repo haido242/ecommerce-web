@@ -9,7 +9,6 @@ import { Navbar } from "./navbar";
 import { ProductManagement } from "./product";
 import { OrderManagement } from "./order";
 import { UserManagement } from "./user";
-import { FormatMoney } from "@app/pipe/formatMoney";
 import { UtcToLocalPipe } from "@app/pipe/formatTimeLocal";
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -29,6 +28,7 @@ import { NzDropDownModule } from "ng-zorro-antd/dropdown";
 import { FormModalProduct } from "./product/form-modal-product";
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { ShareModule } from "@app/share.module";
 
 @NgModule({
     imports: [
@@ -52,10 +52,10 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
         NzMessageModule,
         NzDropDownModule,
         NzUploadModule,
+        ShareModule,
         NzCheckboxModule
     ],
     declarations: [
-        FormatMoney,
         UtcToLocalPipe,
         AdminComponent,
         HomeAdmin,

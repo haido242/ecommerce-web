@@ -5,9 +5,11 @@ import { AdminModule } from './admin/admin.module';
 import { ClientModule } from './client/client.module';
 import { Login } from './auth/login';
 import { AuthModule } from './auth/module';
+import { Register } from './auth/register';
 
 const routes: Routes = [
   { path: 'login', component: Login},
+  { path: 'register', component: Register},
   { path: '**', redirectTo: 'shop/home'}
 ];
 

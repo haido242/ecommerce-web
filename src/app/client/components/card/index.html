@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="image">
+        <img [src]="product.image" alt="product image" />
+        <div class="actions">
+            <button nz-button nzType="primary" (click)="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+    <div class="product-preview">
+        <div class="name">
+            <span>{{ product.name }}</span>
+        </div>
+        <div class="price">
+            <span>{{ product.price | formatMoney }}</span>
+        </div>
+
+    </div>
+</div>

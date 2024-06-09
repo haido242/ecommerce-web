@@ -8,6 +8,7 @@ import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { Register } from "./register";
 
 @NgModule({
     imports: [
@@ -22,7 +23,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
         NzMessageModule
     ],
     declarations: [
-        
+        Register,   
         Login,
     ],
     providers: [],

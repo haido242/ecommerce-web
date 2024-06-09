@@ -19,8 +19,12 @@ export class BaseComponent implements OnInit, OnChanges, OnDestroy, DoCheck, Aft
         this.message = this.injector.get(NzMessageService);
      }
     
-     isLoggedIn() {
+    isLoggedIn() {
         return this.auth.isLoggedIn();
+    }
+
+    goToLogin(){
+        this.router.navigate(["/login"]);
     }
 
     getCurrentUser() {

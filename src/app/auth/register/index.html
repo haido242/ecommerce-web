@@ -1,0 +1,40 @@
+<div class="container">
+    <form nz-form [formGroup]="registerForm">
+        <h1>Register to WARP</h1>
+        <b>Enter your detail below</b>
+        <nz-form-item>
+            <nz-form-control>
+                <input nz-input placeholder="Username" formControlName="username" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <input nz-input placeholder="Email" formControlName="email" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <input nz-input placeholder="Full Name" formControlName="full_name" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <input nz-input placeholder="Password" type="password" formControlName="password"/>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <input nz-input placeholder="Confirm Password" type="password" formControlName="confirmPassword"/>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <button nz-button nzType="primary" (click)="onRegister()">Login</button>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+    <div>
+        <a routerLink="/forgot-password">Forget Password</a>
+        <a routerLink="/register">Register</a>
+    </div>
+</div>

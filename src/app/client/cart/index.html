@@ -1,0 +1,67 @@
+<div class="body">
+    <div class="cart">
+        <div class="cart-header">
+            <span>Cart</span>
+        </div>
+        <div class="cart-body">
+            <nz-table [nzData]="data?.cartItems" [nzBordered]="false" [nzSize]="'small'" nzShowPagination="false">
+                <thead>
+                    <tr>
+                        <th nzWidth="40%">Product</th>
+                        <th nzWidth="20%">Price</th>
+                        <th nzWidth="15%">Quantity</th>
+                        <th nzWidth="20%">Subtotal</th>
+                        <th nzWidth="5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of  data?.cartItems">
+                        <td>
+                            <div class="cart-item">
+                                <div class="cart-item-image">
+                                    <img [src]="item.productData?.image[0]" alt="">
+                                </div>
+                                <div class="cart-item-info">
+                                    <div class="cart-item-name">{{ item.productData?.name }}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ item.productData?.price|| 0 | formatMoney}}</td>
+                        <!-- <td>{{ item.product.price | formatMoney }}</td> -->
+
+                        <td>
+                            <nz-input-number [(ngModel)]="item.quantity" [nzMin]="1" [nzMax]="100" (ngModelChange)="updateQuantity(item.product, $event)"></nz-input-number>
+                        </td>
+                        <td>{{ item.productData?.price * item.quantity || 0 | formatMoney }}</td>
+                        <td>
+                            <span class="delete-icon" nz-icon nzType="delete" nzOkDanger nzTheme="outline" nz-popconfirm nzPopconfirmTitle="Are you sure delete this item>"
+                                nzPopconfirmOkText="Yes" nzPopconfirmCancelText="No" (nzOnConfirm)="removeItem(item.product)"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+            
+            <div class="cart-total">
+                <div class="cart-total-item">
+                    <span>Cart Total</span>
+                    <div class="subtotal item-row">
+                        <span>Subtotal</span>
+                        <span>{{ data?.totalPrice | formatMoney }}</span>
+                        </div>
+                    <nz-divider></nz-divider>
+                    <div class="shipping item-row">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                        </div>
+                    <nz-divider></nz-divider>
+                    <div class="total item-row">
+                        <span>Total</span>
+                        <span>{{ data?.totalPrice | formatMoney }}</span>
+                    </div>
+                </div>
+                <div class="checkout">
+                    <button nz-button nzType="primary" (click)="checkout()">Checkout</button>
+                </div>
+        </div>
+    </div>
+</div>

@@ -22,7 +22,12 @@ export class AuthService {
         localStorage.setItem("token", data.data.token);
         data.data.role === "admin" ? this.router.navigate(["/admin"]) : this.router.navigate(["/client"]);
     }
-
+    register(data) {
+        return this.http.post("http://localhost:3000/api/signup", data);
+    }
+    registerSuccess() {
+        this.router.navigate(["/login"]);
+    }
     isLoggedIn() {
         return !!localStorage.getItem("token");
     }

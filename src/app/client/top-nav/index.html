@@ -13,6 +13,10 @@
     <div class="actions">
 
         <ng-container *ngIf="!isLoggedIn()">
+            <div class="search">
+                <input nz-input placeholder="What are you looking for?" [(ngModel)]="search" (keyup.enter)="searchProduct()"/>
+                <span nz-icon nzType="search" nzTheme="outline" (click)="searchProduct()"></span>
+            </div>
             <a class="login" [routerLink]="'/login'"><span nz-icon nzType="user" nzTheme="outline"></span> Login</a>
 
         </ng-container>
@@ -23,7 +27,7 @@
                     <span nz-icon nzType="search" nzTheme="outline" (click)="searchProduct()"></span>
                 </div>
             <!-- cart -->
-            <a [routerLink]="'shop/cart'">
+            <a [routerLink]="'cart'">
                 <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
             </a>
             <!-- dropdown -->
