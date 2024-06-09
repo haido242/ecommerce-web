@@ -50,9 +50,8 @@
             <nz-upload
               class="border-radius-8"
               nzType="drag"
-              [nzMultiple]="true"
-              nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-              (nzChange)="handleChange($event)">
+              [nzMultiple]="false"
+              [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
               <p class="ant-upload-drag-icon">
                 <span nz-icon nzType="file-image" nzTheme="outline"></span>
               </p>
@@ -98,7 +97,7 @@
       <div nz-row nzGutter="16">
         <div nz-col [nzSpan]="24" class="mg-top-bottom-10">
           <nz-form-control>
-            <label class="font-color-blue fw-bold" nz-checkbox formControlName="isPhysicalProduct">This is a physical product</label>
+            <label class="font-color-blue fw-bold" nz-checkbox formControlName="isPhysicalProduct" (change)="handleChange($event)">This is a physical product</label>
           </nz-form-control>
         </div>
       </div>
@@ -130,4 +129,9 @@
       </div>
     </div>
   </form>
+</div>
+
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+  <button nz-button nzType="primary" (click)="handleOk()" >Add Product</button>
 </div>

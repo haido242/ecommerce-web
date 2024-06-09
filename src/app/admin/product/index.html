@@ -6,7 +6,9 @@
     </div>
     <div class="search">
       <nz-input-group [nzPrefix]="prefixTemplateUser" >
-        <input style="width: 100%" type="text" nz-input placeholder="Search product by name" [nzBorderless]="true"/>
+        <input style="width: 100%" type="text" nz-input placeholder="Search product by name" 
+        [nzBorderless]="true" (keydown.enter)="onSearchProduct($event)"
+        [(ngModel)]="keyWordSearch"/>
       </nz-input-group>
       <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
     </div>
