@@ -9,13 +9,13 @@ import { Injectable } from "@angular/core"
 export class OrderService {
     constructor(private http: HttpClient) {
     }
-    getProducts() {
+    getOrder() {
         return this.http.get("http://localhost:3000/api/orders")
     }
-    getProductById(id) {
-        return this.http.get("http://localhost:3000/api/products/" + id)
+    getOrderById(id) {
+        return this.http.get("http://localhost:3000/api/orders/" + id)
     }
-    createProduct(product) {
+    createOrder(product) {
         return this.http.post("http://localhost:3000/api/products", product)
     }
     updateProduct(id, product) {
@@ -27,4 +27,6 @@ export class OrderService {
     getOrdersByUser(id) {
         return this.http.get("http://localhost:3000/api/orders/get-user-order/" + id)
     }
+
+    
 }

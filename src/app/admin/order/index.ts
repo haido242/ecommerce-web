@@ -1,6 +1,7 @@
+import { OrderService } from "@app/services/order.service";
 import { Component } from "@angular/core";
 import { BaseComponent } from "@app/abstract/BaseComponent";
-
+import { ModalService } from '@app/dialog/antModal';
 @Component({
     selector: 'order-management',
     templateUrl: './index.html',
@@ -8,12 +9,31 @@ import { BaseComponent } from "@app/abstract/BaseComponent";
 })
 
 export class OrderManagement extends BaseComponent{
-    constructor() {
-        super();
-        console.log('Order Management Component');
+    listOrder: any[] = [];
+    keyWordSearch: string = '';
+  
+    constructor(
+      private orderService: OrderService,
+      private modalService: ModalService
+    ) {
+      super();
     }
-
+  
     ngOnInit(): void {
-        super.ngOnInit();
+      super.ngOnInit();
+      this.getAllOrder();
+    }
+  
+    getAllOrder() {
+        this.orderService.getOrder().subscribe((res: any) => {
+            this.listOrder = res.data as any;
+            console.log("listOrder", this.listOrder)
+        });
+    }
+  
+    getOrderByStatus(status) {
+        this.orderService.getOrderByStatus(status).subscribe((res: any) => {
+            this.listOrder = res.data as any;
+        });
     }
 }

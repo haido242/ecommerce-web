@@ -9,7 +9,7 @@ import { Navbar } from "./navbar";
 import { ProductManagement } from "./product";
 import { OrderManagement } from "./order";
 import { UserManagement } from "./user";
-import { UtcToLocalPipe } from "@app/pipe/formatTimeLocal";
+
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
@@ -56,7 +56,6 @@ import { ShareModule } from "@app/share.module";
         NzCheckboxModule
     ],
     declarations: [
-        UtcToLocalPipe,
         AdminComponent,
         HomeAdmin,
         Sidebar,

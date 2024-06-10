@@ -1,1 +1,73 @@
-<div>order</div>
+<div class="product-component">
+  <div class="section-1">
+    <div class="filter-status">
+        <button (click)="getAllOrder()" nz-button nzType="default" style="margin-right: 8px;">All Order</button>  
+        <button (click)="onGetOrderProcessing()" nz-button nzType="default" style="margin-right: 8px;">Processing</button>
+        <button (click)="onBtnLowStock()" nz-button nzType="default" style="margin-right: 8px;">Delivered</button>
+        <button (click)="onBtnLowStock()" nz-button nzType="default">Cancelled</button>
+    </div>
+    <div class="search">
+      <nz-input-group [nzPrefix]="prefixTemplateUser" >
+        <input style="width: 100%" type="text" nz-input placeholder="Search product by name" 
+        [nzBorderless]="true" (keydown.enter)="onSearchProduct($event)"
+        [(ngModel)]="keyWordSearch"/>
+      </nz-input-group>
+      <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
+    </div>
+    <div class="more-filter-modal">
+      <button nz-button nzType="default">
+        <span nz-icon nzType="download" nzTheme="outline"></span>
+        Export
+      </button>
+    </div>
+    <div class="add-product">
+      <button (click)="onBtnAddProduct($event)" nz-button nzType="primary">
+        <span nz-icon nzType="plus" nzTheme="outline"></span>
+        Add Order
+      </button>
+    </div>
+  </div>
+  <nz-divider></nz-divider>
+  <div class="list-product">
+    <nz-table nzShowSizeChanger #rowSelectionTable  [nzData]="listOrder">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Order ID</th>
+        <th>Product</th>
+        <th>Date</th>
+        <th>Customer</th>
+        <th>Total</th>
+        <th>Payment</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of rowSelectionTable.data">
+        <td>
+          <img
+          nzDisablePreview="true"
+          nz-image
+          width="50px"
+          height="50px"
+          nzSrc="{{ order?.orderItems[0]?.product?.image[0]}}"
+          alt=""
+        />
+        </td>
+        <td>{{ order?._id }}</td>
+        <td>{{order?.orderItems[0]?.product?.name}}</td>
+        <td>{{order?.createAt | utcToLocal}}</td>
+        <td>{{order?.user?.full_name}}</td>
+        <td>{{order?.totalPrice}}</td>
+        <td>{{order?.paymentInfo?.paymentMethod}}</td>
+        <td>{{order?.status}}</td>
+        <td>
+          <span  style="font-size: 18px; cursor: pointer; margin-right: 12px;" nz-icon nzType="close-circle" nzTheme="outline"></span>
+          <span style="font-size: 18px; cursor: pointer;" nz-icon nzType="eye" nzTheme="outline"></span>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  </div>
+</div>

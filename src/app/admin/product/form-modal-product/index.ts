@@ -43,9 +43,14 @@ export class FormModalProduct extends BaseComponent {
     this.isEditing = this.nzModalData.isEditing;
     this.productData = this.nzModalData.productData;
     if (this.isEditing && this.productData) {
-      this.productForm.patchValue(this.productData);
+        console.log("productData", this.productData);
+        this.productForm.patchValue({
+            ...this.productData,
+            category: this.productData.category._id  // Assuming `category` in `productData` is an object
+        });
     }
-  }
+}
+
 
   initForm() {
     this.productForm = this.fb.group({
@@ -107,23 +112,28 @@ export class FormModalProduct extends BaseComponent {
     });
   }
 
-    updateProduct() {
-        const formData = new FormData();
-        const file = this.fileList[0];
-        if (file) {
+  updateProduct() {
+    const formData = new FormData();
+    const file = this.fileList[0];
+    if (file) {
         formData.append('productImage', file as any);
-        }
-    
-        Object.keys(this.productForm.controls).forEach(key => {
+    }
+
+    Object.keys(this.productForm.controls).forEach(key => {
         formData.append(key, this.productForm.get(key)?.value);
-        });
-    
-        console.log("formData", formData);
-        this.productService.updateProduct(this.productData._id, formData).subscribe((res: any) => {
+    });
+
+    // Debugging
+    for (const [key, value] of (formData as any).entries()) {
+        console.log(key, value);
+    }
+
+    this.productService.updateProduct(this.productData._id, formData).subscribe((res: any) => {
         console.log(res);
         this.modalRef.close(); // Đóng modal khi sản phẩm được cập nhật thành công
-        }, (err: any) => {
+    }, (err: any) => {
         console.log(err);
-        });
-    }
+    });
+}
+
 }
