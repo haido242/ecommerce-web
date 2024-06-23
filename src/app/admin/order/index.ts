@@ -32,8 +32,6 @@ export class OrderManagement extends BaseComponent{
     }
   
     getOrderByStatus(status) {
-        this.orderService.getOrderByStatus(status).subscribe((res: any) => {
-            this.listOrder = res.data as any;
-        });
+        
     }
 }

@@ -2,14 +2,14 @@
   <div class="section-1">
     <div class="filter-status">
         <button (click)="getAllOrder()" nz-button nzType="default" style="margin-right: 8px;">All Order</button>  
-        <button (click)="onGetOrderProcessing()" nz-button nzType="default" style="margin-right: 8px;">Processing</button>
-        <button (click)="onBtnLowStock()" nz-button nzType="default" style="margin-right: 8px;">Delivered</button>
-        <button (click)="onBtnLowStock()" nz-button nzType="default">Cancelled</button>
+        <button  nz-button nzType="default" style="margin-right: 8px;">Processing</button>
+        <button  nz-button nzType="default" style="margin-right: 8px;">Delivered</button>
+        <button  nz-button nzType="default">Cancelled</button>
     </div>
     <div class="search">
       <nz-input-group [nzPrefix]="prefixTemplateUser" >
         <input style="width: 100%" type="text" nz-input placeholder="Search product by name" 
-        [nzBorderless]="true" (keydown.enter)="onSearchProduct($event)"
+        [nzBorderless]="true" 
         [(ngModel)]="keyWordSearch"/>
       </nz-input-group>
       <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
@@ -21,7 +21,7 @@
       </button>
     </div>
     <div class="add-product">
-      <button (click)="onBtnAddProduct($event)" nz-button nzType="primary">
+      <button nz-button nzType="primary">
         <span nz-icon nzType="plus" nzTheme="outline"></span>
         Add Order
       </button>
