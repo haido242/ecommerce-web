@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import { Router } from "@angular/router";
 import { HttpClient } from '@angular/common/http';
 import {jwtDecode} from "jwt-decode";
+import { Const } from '@app/const/Const';
 
 @Injectable(
     {
@@ -14,8 +15,9 @@ export class AuthService {
     constructor(private router: Router, private http : HttpClient) {
         
      }
+     baseUrl = Const.backendUrl + "/api/";
     login(email: string, password: string) {
-        return this.http.post("http://localhost:3000/api/login", { email, password })
+        return this.http.post(this.baseUrl+"login", { email, password })
 
     }
     loginSuccess(data) {
@@ -23,7 +25,7 @@ export class AuthService {
         data.data.role === "admin" ? this.router.navigate(["/admin"]) : this.router.navigate(["/client"]);
     }
     register(data) {
-        return this.http.post("http://localhost:3000/api/signup", data);
+        return this.http.post(this.baseUrl +"signup", data);
     }
     registerSuccess() {
         this.router.navigate(["/login"]);

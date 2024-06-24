@@ -9,24 +9,22 @@ import { Injectable } from "@angular/core"
 export class OrderService {
     constructor(private http: HttpClient) {
     }
-    getOrder() {
-        return this.http.get("http://localhost:3000/api/orders")
+    getOrders() {
+        return this.http.get("https://ecommerce-server-82px.onrender.com/api/orders")
     }
     getOrderById(id) {
-        return this.http.get("http://localhost:3000/api/orders/" + id)
+        return this.http.get("https://ecommerce-server-82px.onrender.com/api/Orders/" + id)
     }
-    createOrder(product) {
-        return this.http.post("http://localhost:3000/api/products", product)
+    createOrder(Order) {
+        return this.http.post("https://ecommerce-server-82px.onrender.com/api/Orders", Order)
     }
-    updateProduct(id, product) {
-        return this.http.put("http://localhost:3000/api/products/" + id, product)
+    updateOrder(id, Order) {
+        return this.http.put("https://ecommerce-server-82px.onrender.com/api/Orders/" + id, Order)
     }
-    deleteProduct(id) {
-        return this.http.delete("http://localhost:3000/api/products/" + id)
+    deleteOrder(id) {
+        return this.http.delete("https://ecommerce-server-82px.onrender.com/api/Orders/" + id)
     }
     getOrdersByUser(id) {
-        return this.http.get("http://localhost:3000/api/orders/get-user-order/" + id)
+        return this.http.get("https://ecommerce-server-82px.onrender.com/api/orders/get-user-order/" + id)
     }
-
-    
 }

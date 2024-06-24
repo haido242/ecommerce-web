@@ -1,0 +1,91 @@
+<!-- <paypal-btn [cartData]="data"></paypal-btn> -->
+
+<!-- <zalo-pay [cartData]="data"></zalo-pay> -->
+
+
+<div class="checkout">
+    <div class="info">
+        <b class="title">Shiping Address</b>
+        <form nz-form [formGroup]="checkoutForm" (ngSubmit)="submitForm()">
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your name!">
+                    <nz-input-group nzPrefixIcon="user">
+                        <input nz-input formControlName="name" placeholder="Name" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your phone number!">
+                    <nz-input-group nzPrefixIcon="phone">
+                        <input nz-input formControlName="phone" placeholder="Phone" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <div formGroupName="address">
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your city!">
+                        <nz-input-group nzPrefixIcon="environment">
+                            <input nz-input formControlName="city" placeholder="City" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your district!">
+                        <nz-input-group nzPrefixIcon="environment">
+                            <input nz-input formControlName="district" placeholder="District" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your ward!">
+                        <nz-input-group nzPrefixIcon="environment">
+                            <input nz-input formControlName="ward" placeholder="Ward" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your street!">
+                        <nz-input-group nzPrefixIcon="environment">
+                            <input nz-input formControlName="street" placeholder="Street" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <nz-form-item>
+                <nz-form-control>
+                    <!-- form note -->
+                    <nz-input-group nzPrefixIcon="message">
+                        <input nz-input formControlName="note" placeholder="Note" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+
+            <!-- radio button payment method -->
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-radio-group formControlName="paymentMethod">
+                        <label nz-radio nzValue="vnpay"><img class="logo-img" src="assets/img/logo/vnpay.svg" alt=""></label>
+                        <label nz-radio nzValue="paypal">
+                            <img class="logo-img" src="assets/img/logo/paypal.png" alt="">
+                        </label>
+                        <label nz-radio nzValue="zalopay">
+                            <img class="logo-img" src="assets/img/logo/zalopay.svg" alt="">
+                        </label>
+                    </nz-radio-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <button nz-button nzType="primary" type="submit">Pay</button>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+
+
+    </div>
+    <div class="bill">
+        
+
+    </div>
+
+</div>

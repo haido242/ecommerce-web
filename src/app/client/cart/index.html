@@ -59,7 +59,7 @@
                         <span>{{ data?.totalPrice | formatMoney }}</span>
                     </div>
                 </div>
-                <div class="checkout">
+                <div class="checkout" *ngIf="data.cartItems.length > 0"> 
                     <button nz-button nzType="primary" (click)="checkout()">Checkout</button>
                 </div>
         </div>

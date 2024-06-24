@@ -25,7 +25,7 @@ export class OrderManagement extends BaseComponent{
     }
   
     getAllOrder() {
-        this.orderService.getOrder().subscribe((res: any) => {
+        this.orderService.getOrders().subscribe((res: any) => {
             this.listOrder = res.data as any;
             console.log("listOrder", this.listOrder)
         });

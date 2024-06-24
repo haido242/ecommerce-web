@@ -1,0 +1,41 @@
+<div class="body">
+    <div class="detail">
+        <div class="img-container">
+            <div class="img-list">
+                <ng-container *ngFor="let image of product.image">
+                    <div class="img-item" (click)="changeImage(image)">
+                        <img [src]="image" alt="product image" />
+                    </div>
+                </ng-container>
+            </div>
+            <div class="img-main">
+                <img [src]="imageMain" alt="product image" />
+            </div>
+        </div>
+        <div class="info">
+            <div class="name">
+                <span>{{ product.name }}</span>
+            </div>
+            <div class="price">
+                <span>{{ product.price | formatMoney }}</span>
+            </div>
+            <div class="description">
+                <span>{{ product.description }}</span>
+            </div>
+            <div class="actions">
+                <button nz-button nzType="primary" (click)="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="list">
+        <div class="title">
+            <div class="class-gi-do"></div>
+            <span>Related Products</span>
+        </div>
+        <div class="list-product">
+            <ng-container *ngFor="let product of productList">
+                <client-product-card [product]="product"></client-product-card>
+            </ng-container>
+        </div>
+    </div>
+</div>

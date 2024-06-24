@@ -4,6 +4,17 @@
         font-weight: 600;
         margin-bottom: 20px;
     }
+    .cart-body{
+        display: flex;
+        width: 100%;
+        nz-table{
+            width: 70vw;
+        }
+        .cart-total{
+            width: 30vw;
+        }
+
+    }
     .cart-item{
         display: flex;
         justify-content: flex-start;

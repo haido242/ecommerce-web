@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { BaseComponent } from "@app/abstract/BaseComponent";
 import { CartService } from "@app/services/cart.service";
+import { OrderService } from "@app/services/order.service";
 import { ProductService } from "@app/services/product.service";
 
 
@@ -13,7 +14,8 @@ import { ProductService } from "@app/services/product.service";
 export class CartClient extends BaseComponent{
     constructor(
         private cart : CartService,
-        private product : ProductService
+        private product : ProductService,
+        private order : OrderService,
     ) {
         super();
     }
@@ -91,6 +93,8 @@ export class CartClient extends BaseComponent{
         )
     }
     checkout() {
-        // return this.data.cartItems.reduce((acc, item) => acc + item.productData.price * item.quantity, 0)
+
+        this.router.navigate(['/shop/cart/checkout'])
+        
     }
 }

@@ -12,10 +12,10 @@ const adminRoutes: Routes = [
         path: 'admin',
         component: AdminComponent,
         children: [
-        {
-            path: 'home',
-            component: HomeAdmin
-        },
+        // {
+        //     path: 'home',
+        //     component: HomeAdmin
+        // },
         {
             path: 'product',
             component: ProductManagement
@@ -35,7 +35,7 @@ const adminRoutes: Routes = [
         },
         {
             path: '**',
-            redirectTo: 'home',
+            redirectTo: 'product',
             pathMatch: 'full'
         }
         ]

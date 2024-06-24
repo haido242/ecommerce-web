@@ -1,0 +1,61 @@
+<!-- 
+
+<div class="search-container">
+    <input 
+      type="text" 
+      placeholder="Search for a product..." 
+      [(ngModel)]="searchQuery"
+      (input)="onSearch()"
+    />
+    <ul>
+      <li *ngFor="let product of filteredProducts">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+      </li>
+    </ul>
+  </div> -->
+
+  <form nz-form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-control>
+            <nz-input-group nzPrefixIcon="search">
+                <input nz-input formControlName="keyword" placeholder="Search" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <!-- sort -->
+    <nz-form-item>
+        <nz-form-control>
+            <nz-select formControlName="sort" nzPlaceHolder="Sort" nzAllowClear>
+                <nz-option *ngFor="let item of sortOptions" [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
+            </nz-select>
+
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <nz-select formControlName="order" nzPlaceHolder="Order" nzAllowClear>
+                <nz-option *ngFor="let item of orderOptions" [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <nz-select formControlName="category" nzPlaceHolder="Category" nzAllowClear>
+                <nz-option *ngFor="let item of categoryOptions" [nzLabel]="item.label" [nzValue]="item.value"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+    <!-- button -->
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary" nzSize="large" nzBlock (click)="submitForm()">Search</button>
+        </nz-form-control>
+    </nz-form-item>
+
+  </form>
+    <div class="list-product">
+        <ng-container *ngFor="let product of data">
+            <client-product-card [product]="product"></client-product-card>
+        </ng-container>
+    </div>

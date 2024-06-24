@@ -38,4 +38,7 @@ export class ProductCard extends BaseComponent{
             }
         )
     }
+    goDetail(){
+        this.router.navigate([`/shop/product/${this.product._id}`])
+    }
 }

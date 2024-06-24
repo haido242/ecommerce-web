@@ -15,7 +15,28 @@ export class CartService {
     }
 
     addToCart(product) {
+
         return this.http.post(Const.backendUrl + "/api/carts/" + this.user['_id'], product)
+    }
+
+    checkout(
+        payment : any,
+        address : any,
+    ){
+        let paymentInfo = {
+            paymentMethod: payment
+        }
+        let shippingAddress = {
+            city: address.city,
+            district: address.district,
+            ward: address.ward,
+            street: address.street,
+        }
+        return this.http.post(Const.backendUrl + "/api/carts/" + this.user['_id'] + '/checkout', { paymentInfo, shippingAddress })
+    }
+
+    pay(orderId) {
+        return this.http.post(Const.backendUrl + "/api/payments/create", {orderId })
     }
 
 

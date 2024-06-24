@@ -1,8 +1,8 @@
 :host {
     display: flex;
-    height: 135px;
+    height: 80px;
     width: 100%;
-    background-color: #007BFF;
+    background-color: #1e3c5d;
     color: white;
     // border radius bottom
     border-bottom-left-radius: 40px;
@@ -76,14 +76,14 @@
 
 }
 ::ng-deep .ant-dropdown-menu{
-    background-color: #007bff19;
+    background-color: #1e3c5d19;
     color: white;
     backdrop-filter: blur(20px);
 
     .ant-dropdown-menu-item{
         color: white;
         // blur background
-        background-color: #007bff19;
+        background-color: #1e3c5d19;
         backdrop-filter: blur(20px);
     }
 }
