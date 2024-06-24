@@ -3,8 +3,8 @@ import { SidebarMenuItem } from "@app/admin/interfaces/interface";
 
 
 export class Const {
-    // public static backendUrl = "http://localhost:3000";
-    public static backendUrl = "https://ecommerce-server-82px.onrender.com";
+    public static backendUrl = "http://localhost:3000";
+    // public static backendUrl = "https://ecommerce-server-82px.onrender.com";
 
     public static sidebarMenu :Array< SidebarMenuItem> = [
         // {

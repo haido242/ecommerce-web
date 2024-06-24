@@ -23,12 +23,15 @@ export class OrderManagement extends BaseComponent{
       super.ngOnInit();
       this.getAllOrder();
     }
-  
     getAllOrder() {
         this.orderService.getOrders().subscribe((res: any) => {
             this.listOrder = res.data as any;
             console.log("listOrder", this.listOrder)
         });
+    }
+    getProductNames(orderItems) {
+      if (!orderItems) return "";
+      return orderItems.map(item => item.product.name).join(", ");
     }
   
     getOrderByStatus(status) {

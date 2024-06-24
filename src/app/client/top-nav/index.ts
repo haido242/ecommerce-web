@@ -19,4 +19,8 @@ export class TopnavComponent extends BaseComponent{
     searchProduct(){
         
     }
+
+    goToOrder(){
+        this.router.navigate(["shop/order"]);
+    }
 }

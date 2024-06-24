@@ -32,7 +32,6 @@
     <nz-table nzShowSizeChanger #rowSelectionTable  [nzData]="listOrder">
     <thead>
       <tr>
-        <th></th>
         <th>Order ID</th>
         <th>Product</th>
         <th>Date</th>
@@ -45,18 +44,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let order of rowSelectionTable.data">
-        <td>
-          <img
-          nzDisablePreview="true"
-          nz-image
-          width="50px"
-          height="50px"
-          nzSrc="{{ order?.orderItems[0]?.product?.image[0]}}"
-          alt=""
-        />
-        </td>
         <td>{{ order?._id }}</td>
-        <td>{{order?.orderItems[0]?.product?.name}}</td>
+        <td>{{getProductNames(order.orderItems)}}</td>
         <td>{{order?.createAt | utcToLocal}}</td>
         <td>{{order?.user?.full_name}}</td>
         <td>{{order?.totalPrice}}</td>

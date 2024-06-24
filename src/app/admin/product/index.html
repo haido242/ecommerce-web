@@ -56,7 +56,18 @@
         <td>{{ product?.category?.name}}</td>
         <td>{{ product.stockQuantity }}</td>
         <td>{{ product.price | formatMoney}}</td>
-        <td style="color: green; font-weight: bold;">{{ product.status}}</td>
+        <td style="color: green; font-weight: bold;">
+          <!-- option change status -->
+          <nz-select
+            nzPlaceHolder="Select status"
+            [(ngModel)]="product.status"
+            (ngModelChange)="onChangeStatusProduct($event, product)"
+          >
+            <nz-option nzValue="Published" nzLabel="Published"></nz-option>
+            <nz-option nzValue="Unpublished" nzLabel="Unpublished"></nz-option>
+            <nz-option nzValue="" nzLabel="Created"></nz-option>
+          </nz-select>
+        </td>
         <td>{{ product.createAt | utcToLocal}}</td>
         <td>
           <span (click)="onBtnDeleteProduct(product._id ?? product?.id)" style="font-size: 18px; cursor: pointer; margin-right: 12px;" nz-icon nzType="delete" nzTheme="outline"></span>

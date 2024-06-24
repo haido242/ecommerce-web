@@ -25,6 +25,14 @@ export class ProductManagement extends BaseComponent {
     this.getAllProducts();
   }
 
+  onChangeStatusProduct(event: any, product: any) {
+    let status = { status: event };
+    console.log(status);
+    this.productService.updateProduct(product._id, status).subscribe((res: any) => {
+      this.getAllProducts();
+    });
+  }
+
   getAllProducts() {
     console.log('Get all products');
     this.productService.getProducts().subscribe((res: any) => {

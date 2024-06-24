@@ -53,7 +53,8 @@ export class HomeClient extends BaseComponent {
             limit: 4,
             page: 1,
             sort: 'createdAt',
-            order: 1
+            order: 1,
+            status : "Published"
         }
         this.product.getProducts(param).subscribe(
             res => {

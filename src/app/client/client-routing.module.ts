@@ -6,6 +6,7 @@ import { CartClient } from "./cart";
 import { CheckoutClient } from "./cart/checkout";
 import { DetailClient } from "./detail";
 import { Search } from "./search";
+import { MyOrder } from "./order";
 
 
 const clientRoutes: Routes = [
@@ -20,6 +21,10 @@ const clientRoutes: Routes = [
         {
             path: 'cart',
             component: CartClient,
+        },
+        {
+            path: 'order',
+            component: MyOrder,
         },
         {
             path: 'search',

@@ -24,6 +24,7 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { Success } from "./success";
 import { Search } from "./search";
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { MyOrder } from "./order";
 
 @NgModule({
     imports: [
@@ -54,6 +55,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
         HomeClient,
         DetailClient,
         Success,
+        MyOrder,
         Search
     ],
     providers: [
